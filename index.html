@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<style>
+   div{
+    border: 2px solid red;
+    border-radius: 50px;
+    width: 400px;
+      background-color: black;
+      color: wheat;
+   }
+</style>
+<body>
+   <center>
+      <div>
+         <h1 id="first">00</h1>
+         <h1 id="sec">00</h1>
+         <h1 id="third">00</h1>
+         <button onclick="Clicktime()" style='margin-top:10px;font-size: 30px; background-color: blanchedalmond;color: black;'>Stop Watch</button>
+      </div>
+   </center>
+   <script>
+         function Clicktime() {
+         let c = parseInt(prompt('Enter the hours'))
+         let a = parseInt(prompt('Enter the minutes'))
+         let b = parseInt(prompt('Enter the second'))
+
+         document.getElementById('third').innerText = c
+         document.getElementById('first').innerText = a
+         document.getElementById('sec').innerText = b
+
+
+         setInterval(() => {
+            let date = new Date();
+            date.setSeconds(b)
+            let settime = date.getSeconds()
+            b++
+            if (settime >= 60) {
+               settime = 0
+            }
+            document.getElementById('sec').innerText = "second:" + settime;
+
+
+
+            let dateMin = new Date();
+            dateMin.setMinutes(a)
+            let setMin = dateMin.getMinutes()
+            if (settime == 59) {
+               a++
+           }
+            document.getElementById('first').innerText = "minutes:" + setMin
+
+
+            let hourr = new Date();
+            hourr.setHours(c)
+            let sethrs = dateMin.getHours()
+            document.getElementById('third').innerText = "hours:" + sethrs
+
+
+         }, 1000)
+
+      } 
+   </script>
+</body>
+
+</html>
